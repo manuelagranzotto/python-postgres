@@ -21,18 +21,19 @@ try:
     # Retrieve query results
     records = cur.fetchall()
 
-    # print the results
-
-    with open('output.txt', 'w') as file:
-    # write every line
-        for row in records:
-            file.write(row)
-
-
     # Close de connection
 
     cur.close()
     conn.close()
+
+    filename = 'resultados.txt'
+
+    # Save the output on a file
+    with open(filename, 'w', encoding='utf-8') as file:
+        for line in records:
+            file.write('\t'.join(map(str, line)) + '\n')
+    print(f"Resultados salvos em '{filename}'")
+
 except psycopg2.Error as e:
     print(f"Não foi possível conectar ao PostgreSQL {e}")
 
