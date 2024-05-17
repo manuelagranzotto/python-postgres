@@ -2,7 +2,7 @@ import psycopg2
 import os
 import sys
 
-print(os.environ)
+#print(os.environ)
 
 try:
     # Connect to your postgres DB
