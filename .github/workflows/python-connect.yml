@@ -31,7 +31,7 @@ jobs:
         run: |
           sudo apt-get -y install python3
           sudo pip install psycopg2-binary
-          python database.py "host ${{ vars.HOST_DB }}" "port ${{ secrets.HOST_PORT }}" "database ${{ vars.DATABASE }}" "user ${{ secrets.USER_PG }}" "password ${{ secrets.PGPASSWORD }}"
+          python database.py ${{ vars.HOST_DB }} ${{ secrets.HOST_PORT }} ${{ vars.DATABASE }} ${{ secrets.USER_PG }} ${{ secrets.PGPASSWORD }}"
           
 
 
