@@ -7,12 +7,13 @@ import sys
 try:
     # Connect to your postgres DB
     conn = psycopg2.connect(
-        host= sys.argv[1],
-        port= sys.argv[2],
+        host= sys.argv[1], #HOST_DB
+        port= int(sys.argv[2]),
         database= sys.argv[3],
         user= sys.argv[4],
         password= sys.argv[5]
     )
+    #python database.py ${{ env.HOST_DB }} ${{ secrets.HOST_PORT }} ${{ env.DATABASE }} ${{ secrets.USER_PG }} ${{ secrets.PGPASSWORD }}
 
     # Open a cursor to perform database operations
     cur = conn.cursor()
