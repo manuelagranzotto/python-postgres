@@ -3,20 +3,14 @@ import os
 
 print(os.environ)
 
-host= 'localhost',
-port= '5432',
-database='db_mg',
-user='postgres',
-password='Abcd1234!'
-
 try:
     # Connect to your postgres DB
     conn = psycopg2.connect(
-        host= 'database-ea.cvkei0o2ei4o.eu-central-1.rds.amazonaws.com',
-        port=5432,
+        host= '${{ envs.HOST_DB }}',
+        port= '${{ secrets.HOST_PORT}}',
         database='db-mg',
-        user='postgres',
-        password='Abcd1234!'
+        user='${{ secrets.USER_PG}}',
+        password='${{ secrets.PGPASSWORD}}'
     )
 
     # Open a cursor to perform database operations
