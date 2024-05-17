@@ -4,6 +4,8 @@ import sys
 
 #print(os.environ)
 
+print("Argumentos:", sys.argv)
+'''
 try:
     # Connect to your postgres DB
     conn = psycopg2.connect(
@@ -53,4 +55,4 @@ except psycopg2.Error as e:
 
 #     except (Exception, psycopg2.DatabaseError) as error:
 #         print(error)
-
+'''
