@@ -1,16 +1,17 @@
 import psycopg2
 import os
+import sys
 
 print(os.environ)
 
 try:
     # Connect to your postgres DB
     conn = psycopg2.connect(
-        host= '${{ envs.HOST_DB }}',
-        port= int('${{ secrets.HOST_PORT}}'),
-        database='db-mg',
-        user='${{ secrets.USER_PG}}',
-        password='${{ secrets.PGPASSWORD}}'
+        host= sys.argv[1],
+        port= sys.argv[2],
+        database= sys.argv[3],
+        user= sys.argv[4],
+        password= sys.argv[5]
     )
 
     # Open a cursor to perform database operations
