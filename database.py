@@ -22,8 +22,12 @@ try:
     records = cur.fetchall()
 
     # print the results
-    for row in records:
-        print(row)
+
+    with open('output.txt', 'w') as file:
+    # write every line
+        for row in records:
+            file.write(row)
+
 
     # Close de connection
 
