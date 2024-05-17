@@ -1,11 +1,43 @@
-#import psycopg2
-#from config import load_config
+import psycopg2
 import os
 
-print(os.environ['PGPASSWORD'])
-print(os.environ['USER_PG'])
-print(os.environ['HOST_DB'])
-print(os.environ['HOST_EC2'])
+print(os.environ)
+
+host= 'localhost',
+port= '5432',
+database='db_mg',
+user='postgres',
+password='Abcd1234!'
+
+try:
+    # Connect to your postgres DB
+    conn = psycopg2.connect(
+        host= 'database-ea.cvkei0o2ei4o.eu-central-1.rds.amazonaws.com',
+        port=5432,
+        database='db-mg',
+        user='postgres',
+        password='Abcd1234!'
+    )
+
+    # Open a cursor to perform database operations
+    cur = conn.cursor()
+
+    # Execute a query
+    cur.execute("SELECT * FROM public.contacts")
+
+    # Retrieve query results
+    records = cur.fetchall()
+
+    # print the results
+    for row in records:
+        print(row)
+
+    # Close de connection
+
+    cur.close()
+    conn.close()
+except psycopg2.Error as e:
+    print(f"Não foi possível conectar ao PostgreSQL {e}")
 #To see a list of all environment variables:
 # print(os.environ)
 
