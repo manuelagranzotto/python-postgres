@@ -26,7 +26,7 @@ try:
     cur.close()
     conn.close()
 
-    filename = 'resultados.txt'
+    filename = 'output.txt'
 
     # Save the output on a file
     with open(filename, 'w', encoding='utf-8') as file:
