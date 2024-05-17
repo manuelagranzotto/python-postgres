@@ -7,7 +7,7 @@ try:
     # Connect to your postgres DB
     conn = psycopg2.connect(
         host= '${{ envs.HOST_DB }}',
-        port= '${{ secrets.HOST_PORT}}',
+        port= ${{ secrets.HOST_PORT}},
         database='db-mg',
         user='${{ secrets.USER_PG}}',
         password='${{ secrets.PGPASSWORD}}'
