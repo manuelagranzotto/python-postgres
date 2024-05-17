@@ -16,6 +16,8 @@ try:
         password= sys.argv[5]
     )
     #python database.py ${{ env.HOST_DB }} ${{ secrets.HOST_PORT }} ${{ env.DATABASE }} ${{ secrets.USER_PG }} ${{ secrets.PGPASSWORD }}
+    #python database.py "host ${{ env.HOST_DB }}" "port ${{ secrets.HOST_PORT }}" "database ${{ env.DATABASE }}" "user ${{ secrets.USER_PG }}" "password ${{ secrets.PGPASSWORD }}"
+    #Argumentos: ['database.py', '***', '***', '***']
 
     # Open a cursor to perform database operations
     cur = conn.cursor()
